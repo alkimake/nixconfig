@@ -25,6 +25,8 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  services.qemuGuest.enable = true;
+
   # Set your time zone.
   time.timeZone = "Asia/Seoul";
 
