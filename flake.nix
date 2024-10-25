@@ -16,7 +16,6 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     nixvim.url = "github:alkimake/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
-    nixvim.inputs.flake-parts.follows = "flake-parts";
   };
 
   # Wired using https://nixos-unified.org/autowiring.html

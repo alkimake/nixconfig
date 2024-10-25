@@ -2,8 +2,16 @@
 let
   inherit (flake) inputs;
   inherit (inputs) self;
+  nixvim' = inputs.nixvim.packages.${pkgs.system}.default;
+  nvim = nixvim'.extend {
+    # config.theme = lib.mkForce "jellybeans";
+  };
+
 in
 {
+  home.packages = [
+    nvim
+  ];
   imports = [
     self.homeModules.default
   ];

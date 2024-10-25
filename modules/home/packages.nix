@@ -4,8 +4,6 @@
   #
   # Search for packages here: https://search.nixos.org/packages
   home.packages = with pkgs; [
-    # TODO: overlay nixvim in a new file
-    flake.inputs.nixvim.packages.${pkgs.system}.default
 
     # Unix tools
     ripgrep # Better `grep`
