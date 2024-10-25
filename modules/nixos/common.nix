@@ -2,5 +2,7 @@
 {
   imports = [
     ./shared/fonts.nix
+    ./shared/nix.nix
+    ./shared/cachix.nix
   ];
 }
