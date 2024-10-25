@@ -10,14 +10,10 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
-
   # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/vda";
-  boot.loader.grub.useOSProber = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "vm-qemu"; # Define your hostname.
-  services.qemuGuest.enable = true;
-
+  networking.hostName = "vm-aarch64-utm"; # Define your hostname.
   system.stateVersion = "24.05"; # Did you read the comment?
 }
