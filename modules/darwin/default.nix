@@ -7,6 +7,9 @@ let
   inherit (inputs) self;
 in
 {
+  imports = [
+    self.nixosModules.common
+  ];
   # Use TouchID for `sudo` authentication
   security.pam.enableSudoTouchIdAuth = true;
 
