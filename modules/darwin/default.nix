@@ -1,16 +1,12 @@
 # This is your nix-darwin configuration.
 # For home configuration, see /modules/home/*
-{
-  flake,
-  pkgs,
-  lib,
-  ...
-}: let
+{flake, ...}: let
   inherit (flake) inputs;
   inherit (inputs) self;
 in {
   imports = [
     self.nixosModules.common
+    ./homebrew.nix
   ];
   # Use TouchID for `sudo` authentication
   security.pam.enableSudoTouchIdAuth = true;
