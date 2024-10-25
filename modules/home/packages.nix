@@ -1,10 +1,12 @@
-{ pkgs, flake, ... }:
 {
+  pkgs,
+  flake,
+  ...
+}: {
   # Nix packages to install to $HOME
   #
   # Search for packages here: https://search.nixos.org/packages
   home.packages = with pkgs; [
-
     # Unix tools
     ripgrep # Better `grep`
     fd
@@ -18,13 +20,12 @@
     nix-info
     nixpkgs-fmt
 
-    # Dev
-    tmate
-
     # On ubuntu, we need this less for `man home-configuration.nix`'s pager to
     # work.
     less
   ];
+
+  # TODO: try to make nh works with proper settings
 
   # Programs natively supported by home-manager.
   # They can be configured in `programs.*` instead of using home.packages.

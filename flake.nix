@@ -16,10 +16,17 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     nixvim.url = "github:alkimake/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
+
+    #Theme
+    catppuccin.url = "github:catppuccin/nix";
+    nix-colors.url = "github:misterio77/nix-colors";
   };
 
   # Wired using https://nixos-unified.org/autowiring.html
   outputs = inputs:
     inputs.nixos-unified.lib.mkFlake
-      { inherit inputs; root = ./.; };
+    {
+      inherit inputs;
+      root = ./.;
+    };
 }
