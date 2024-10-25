@@ -18,6 +18,9 @@
 
   networking.hostName = "vm-qemu"; # Define your hostname.
   services.qemuGuest.enable = true;
+  
+  # Qemu
+  services.spice-vdagentd.enable = true;
 
   system.stateVersion = "24.05"; # Did you read the comment?
 }

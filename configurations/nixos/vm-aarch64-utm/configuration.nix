@@ -13,6 +13,13 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  
+  # Qemu
+  services.spice-vdagentd.enable = true;
+
+  # For now, we need this since hardware acceleration does not work.
+  environment.variables.LIBGL_ALWAYS_SOFTWARE = "1";
+
 
   networking.hostName = "vm-aarch64-utm"; # Define your hostname.
   system.stateVersion = "24.05"; # Did you read the comment?
