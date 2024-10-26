@@ -15,8 +15,9 @@
 in {
   programs.tmux = {
     enable = true;
-    terminal = "tmux-256color";
     historyLimit = 100000;
+    keyMode = "vi";
+    shell = "${pkgs.zsh}/bin/zsh";
     plugins = with pkgs; [
       tmux-nvim
       tmuxPlugins.tmux-thumbs
