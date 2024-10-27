@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+
+  # Copy Catppuccin theme to iTerm2 preferences folder
+  home.file.".config/iterm2/catppuccin-mocha.itermcolors".source = ./catppuccin-mocha.itermcolors;
+
   # Enable the iTerm2 program module
   programs.iterm2 = {
     enable = true;
@@ -19,24 +23,10 @@
       "LoadPrefsFromCustomFolder" = true;
       "PrefsCustomFolder" = "$HOME/.config/iterm2";
     };
+    extraInit = ''
+      open "$HOME/.config/iterm2/catppuccin-mocha.itermcolors"
+    '';
   };
 
-  # Copy Catppuccin theme to iTerm2 preferences folder
-  home.file.".config/iterm2/catppuccin-mocha.itermcolors".source = ./catppuccin-mocha.itermcolors;
-
-  # Install iTerm2 theme
-  programs.iterm2.extraInit = ''
-    open "$HOME/.config/iterm2/catppuccin-mocha.itermcolors"
-  '';
-
-  # Configure iTerm2 to run at login silently
-  launchd.user.agents.iterm2 = {
-    program = "${pkgs.iterm2}/Applications/iTerm.app/Contents/MacOS/iTerm2";
-    runAtLoad = true;
-    keepAlive = false;
-    launchOnlyOnce = true;
-    standardOutPath = "/dev/null";    # Suppress output
-    standardErrorPath = "/dev/null";  # Suppress errors
-  };
 }
 
