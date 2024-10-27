@@ -17,16 +17,16 @@
 
       # Set default color preset to Catppuccin
       "LoadPrefsFromCustomFolder" = true;
-      "PrefsCustomFolder" = "$HOME/.iterm2";
+      "PrefsCustomFolder" = "$HOME/.config/iterm2";
     };
   };
 
   # Copy Catppuccin theme to iTerm2 preferences folder
-  home.file.".iterm2/catppuccin-mocha.itermcolors".source = ./catppuccin-mocha.itermcolors;
+  home.file.".config/iterm2/catppuccin-mocha.itermcolors".source = ./catppuccin-mocha.itermcolors;
 
   # Install iTerm2 theme
   programs.iterm2.extraInit = ''
-    open "$HOME/.iterm2/catppuccin-mocha.itermcolors"
+    open "$HOME/.config/iterm2/catppuccin-mocha.itermcolors"
   '';
 
   # Configure iTerm2 to run at login silently
