@@ -1,6 +1,10 @@
 # This is your nix-darwin configuration.
 # For home configuration, see /modules/home/*
-{flake, ...}: let
+{
+  flake,
+  pkgs,
+  ...
+}: let
   inherit (flake) inputs;
   inherit (inputs) self;
 in {
@@ -34,19 +38,20 @@ in {
       };
     };
 
-    # Configure iTerm2 to run at login silently
-    launchd.user.agents.iterm2 = {
-      program = "${pkgs.iterm2}/Applications/iTerm.app/Contents/MacOS/iTerm2";
-      runAtLoad = true;
-      keepAlive = false;
-      launchOnlyOnce = true;
-      standardOutPath = "/dev/null";    # Suppress output
-      standardErrorPath = "/dev/null";  # Suppress errors
-    };
-
     keyboard = {
       # enableKeyMapping = true;
       # remapCapsLockToControl = true;
+    };
+  };
+  # Configure iTerm2 to run at login silently
+  launchd.user.agents.iterm2 = {
+    command = "${pkgs.iterm2}/Applications/iTerm.app/Contents/MacOS/iTerm2";
+    serviceConfig = {
+      KeepAlive = false;
+      RunAtLoad = true;
+      StandardOutPath = "/dev/null"; # Suppress output
+      StandardErrorPath = "/dev/null"; # Suppress errors
+      LaunchOnlyOnce = true;
     };
   };
 }
