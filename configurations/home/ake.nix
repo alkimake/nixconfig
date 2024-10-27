@@ -11,18 +11,17 @@
   nvim = nixvim'.extend {
     # config.theme = lib.mkForce "jellybeans";
   };
-  systemBaseHomeModules = (
-    if isDarwin
-    then self.homeModules.darwin
-    else self.homeModules.nixos
-  );
+  # systemBaseHomeModules = (
+  #   if isDarwin
+  #   then self.homeModules.darwin
+  #   else self.homeModules.nixos
+  # );
 in {
   home.packages = [
     nvim
   ];
   imports = [
     self.homeModules.default
-    systemBaseHomeModules
   ];
   home.username = "ake";
   home.homeDirectory = lib.mkDefault "/${
