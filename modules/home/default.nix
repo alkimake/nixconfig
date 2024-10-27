@@ -2,15 +2,17 @@
 # This module conditionally ignores certain files based on the operating system.
 
 { pkgs, ... }:
+
 {
-  imports = with builtins; 
+  imports =
     let
-      # Filter out files based on the operating system
-      isDarwin = pkgs.stdenv.isDarwin;
-      isNixos = pkgs.stdenv.isLinux;
-      files = filter (fn: 
-        (isDarwin && !builtins.match "nixos-.*" fn) || 
-        (isNixos && !builtins.match "darwin-.*" fn)
-      ) (attrNames (readDir ./.));
-    in map (fn: ./${fn}) files;
+      excludeDirs = if pkgs.stdenv.isDarwin then ["nixos-only"]
+                    else if pkgs.stdenv.isLinux then ["darwin-only"]
+                    else [];
+      files = builtins.attrNames (builtins.readDir ./.);
+      filteredFiles = builtins.filter
+        (fn: fn != "default.nix" && !(builtins.elem fn excludeDirs))
+        files;
+    in
+    map (fn: ./${fn}) filteredFiles;
 }
