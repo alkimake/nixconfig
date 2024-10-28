@@ -15,14 +15,16 @@
 in {
   programs.tmux = {
     enable = true;
+    sensibleOnTop = false;
     historyLimit = 100000;
+    terminal = "screen-256color";
     keyMode = "vi";
-    shell = "${pkgs.zsh}/bin/zsh";
+    shell = "/bin/zsh";
+    # prefix = "C-a";
     plugins = with pkgs; [
       tmux-nvim
       tmuxPlugins.tmux-thumbs
       tmuxPlugins.yank
-      tmuxPlugins.sensible
       {
         plugin = tmuxPlugins.catppuccin;
         extraConfig = ''
@@ -33,17 +35,12 @@ in {
       }
     ];
     extraConfig = ''
-      set -g default-terminal "tmux-256color"
       set -ag terminal-overrides ",xterm-256color:RGB"
       set-option -g status-position top
       set-option -sg escape-time 10
       bind -n S-down new-window
       bind -n S-left prev
       bind -n S-right next
-
-      unbind C-b
-      set -g prefix C-Space
-      bind C-Space send-prefix
 
       # Vim style pane selection
       bind h select-pane -L
@@ -70,16 +67,12 @@ in {
       # Easier reload of config
       bind r source-file ~/.config/tmux/tmux.conf
 
-
       # Change splits to match nvim and easier to remember
       # Open new split at cwd of current split
       unbind %
       unbind '"'
       bind | split-window -h -c "#{pane_current_path}"
       bind - split-window -v -c "#{pane_current_path}"
-
-      # Use vim keybindings in copy mode
-      set-window-option -g mode-keys vi
 
       # v in copy mode starts making selection
       bind-key -T copy-mode-vi v send-keys -X begin-selection
