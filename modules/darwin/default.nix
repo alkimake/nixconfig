@@ -43,15 +43,4 @@ in {
       # remapCapsLockToControl = true;
     };
   };
-  # Configure iTerm2 to run at login silently
-  launchd.user.agents.iterm2 = {
-    command = "${pkgs.iterm2}/Applications/iTerm.app/Contents/MacOS/iTerm2";
-    serviceConfig = {
-      KeepAlive = false;
-      RunAtLoad = true;
-      StandardOutPath = "/dev/null"; # Suppress output
-      StandardErrorPath = "/dev/null"; # Suppress errors
-      LaunchOnlyOnce = true;
-    };
-  };
 }
