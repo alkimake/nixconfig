@@ -5,5 +5,6 @@
     ./shared/nix.nix
     ./shared/cachix.nix
     ./shared/tailscale.nix
+    ./shared/zsh.nix
   ];
 }
