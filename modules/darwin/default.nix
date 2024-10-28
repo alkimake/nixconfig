@@ -36,6 +36,7 @@ in {
         ShowPathbar = true; # show path bar
         ShowStatusBar = true; # show status bar
       };
+      NSGlobalDomain."com.apple.keyboard.fnState" = true;
     };
 
     keyboard = {
