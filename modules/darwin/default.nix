@@ -28,6 +28,13 @@ in {
         wvous-br-corner = 4; # bottom-right - Desktop
       };
 
+      # customize trackpad
+      trackpad = {
+        # tap - 轻触触摸板, click - 点击触摸板
+        Clicking = true; # enable tap to click(轻触触摸板相当于点击)
+        TrackpadRightClick = true; # enable two finger right click
+      };
+
       finder = {
         _FXShowPosixPathInTitle = true; # show full path in finder title
         AppleShowAllExtensions = true; # show all file extensions
@@ -36,7 +43,10 @@ in {
         ShowPathbar = true; # show path bar
         ShowStatusBar = true; # show status bar
       };
-      NSGlobalDomain."com.apple.keyboard.fnState" = true;
+      NSGlobalDomain = {
+        AppleInterfaceStyle = "Dark"; # dark mode
+        "com.apple.keyboard.fnState" = true;
+      };
     };
 
     keyboard = {
