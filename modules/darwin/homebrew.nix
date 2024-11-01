@@ -6,6 +6,8 @@ in {
     casks = [
       "spotify"
       "proton-pass"
+      "slack"
+      "kitty"
     ];
     brews = [
       "mas"
