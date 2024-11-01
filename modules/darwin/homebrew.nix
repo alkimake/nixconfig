@@ -8,6 +8,7 @@ in {
       "proton-pass"
       "slack"
       "kitty"
+      "google-chrome"
     ];
     brews = [
       "mas"
