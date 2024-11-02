@@ -15,6 +15,11 @@
     # };
     shellIntegration.enableZshIntegration = true;
     settings = with config.colorScheme.palette; {
+      # Hide the title bar
+      hide_window_decorations = "yes";
+
+      window_padding_width = "4";
+
       enable_audio_bell = "no";
 
       cursor = "#${base06}";
