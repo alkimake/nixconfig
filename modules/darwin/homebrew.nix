@@ -2,6 +2,7 @@
 in {
   homebrew = {
     enable = true;
+
     casks = [
       "spotify"
       "proton-pass"
@@ -12,6 +13,10 @@ in {
     masApps = {
       # "Proton Pass for Safari" = 2087098929;
     };
-    onActivation.cleanup = "zap";
+    onActivation = {
+      autoUpdate = true;
+      cleanup = "zap";
+      upgrade = true;
+    };
   };
 }
