@@ -1,16 +1,13 @@
 # This is your nix-darwin configuration.
 # For home configuration, see /modules/home/*
-{
-  flake,
-  pkgs,
-  ...
-}: let
+{flake, ...}: let
   inherit (flake) inputs;
   inherit (inputs) self;
 in {
   imports = [
     self.nixosModules.common
     ./homebrew.nix
+    ./yabai.nix
   ];
   # Use TouchID for `sudo` authentication
   security.pam.enableSudoTouchIdAuth = true;
@@ -26,6 +23,10 @@ in {
         # wvous-tr-corner = 13; # top-right - Lock Screen
         wvous-bl-corner = 3; # bottom-left - Application Windows
         wvous-br-corner = 4; # bottom-right - Desktop
+        mru-spaces = false;
+      };
+      universalaccess = {
+        reduceMotion = true;
       };
 
       # customize trackpad
