@@ -25,6 +25,7 @@ in {
       tmux-nvim
       tmuxPlugins.tmux-thumbs
       tmuxPlugins.yank
+      tmuxPlugins.sessionist
       {
         plugin = tmuxPlugins.catppuccin;
         extraConfig = ''
