@@ -4,7 +4,6 @@
     lg = "lazygit";
   };
 
-  # https://nixos.asia/en/git
   programs = {
     git = {
       enable = true;
@@ -24,6 +23,7 @@
         enable = true;
       };
       extraConfig = {
+        pull.rebase = true;
         push = {autoSetupRemote = true;};
         color = {
           ui = "auto";
