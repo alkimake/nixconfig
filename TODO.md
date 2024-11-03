@@ -11,6 +11,7 @@ Quick notes on what to do or what to try
 - [ ] Use Ghostty as terminal when its available
 - [x] Reduce motion for darwin
 - [x] Re-arrange spaces setting depends on recent
+- [ ] install vscode or cursor with nix or brew. Currently if its install with home brew, it is not possible to install extensions
 
 ## TRY
 
