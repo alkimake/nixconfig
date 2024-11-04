@@ -15,6 +15,9 @@
     # };
     shellIntegration.enableZshIntegration = true;
     settings = with config.colorScheme.palette; {
+      # Lets try transparency
+      background_opacity = 0.95;
+
       # Hide the title bar
       hide_window_decorations = "yes";
 
