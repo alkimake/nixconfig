@@ -4,13 +4,15 @@
     lg = "lazygit";
   };
 
-  # https://nixos.asia/en/git
   programs = {
     git = {
       enable = true;
       userName = "Alkim Ake Gozen";
       userEmail = "alkimake@pm.me";
       # TODO: add default gpg key and configure with `config.me`
+      signing = {
+        signByDefault = true;
+      };
       lfs = {
         enable = true;
         skipSmudge = true;
@@ -20,6 +22,7 @@
         enable = true;
       };
       extraConfig = {
+        pull.rebase = true;
         push = {autoSetupRemote = true;};
         color = {
           ui = "auto";

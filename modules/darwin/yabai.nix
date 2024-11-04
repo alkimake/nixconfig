@@ -63,6 +63,9 @@ in {
         shift + alt - k : ${yabai-bin} -m window --swap north
         shift + alt - l : ${yabai-bin} -m window --swap east
 
+        shift + alt - w : ${yabai-bin} -m window --display west; ${yabai-bin} -m display --focus west
+        shift + alt - e : ${yabai-bin} -m window --display east; ${yabai-bin} -m display --focus east
+
         # Resize windows
         ctrl + alt - h : ${yabai-bin} -m window --resize left:-50:0; \
                          ${yabai-bin} -m window --resize right:-50:0
