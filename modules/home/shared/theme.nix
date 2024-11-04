@@ -15,5 +15,6 @@ in {
     fzf.catppuccin.enable = true;
     starship.catppuccin.enable = true;
     zsh.syntaxHighlighting.catppuccin.enable = true;
+    yazi.catppuccin.enable = true;
   };
 }

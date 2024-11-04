@@ -50,7 +50,7 @@ in {
 
         plf() {
           proj
-          lf
+          yazi
         }
 
       '';
