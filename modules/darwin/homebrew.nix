@@ -1,5 +1,4 @@
-{...}: let
-in {
+_: {
   homebrew = {
     enable = true;
 
@@ -9,6 +8,7 @@ in {
       "slack"
       "kitty"
       "google-chrome"
+      "obsidian"
     ];
     brews = [
       "mas"
