@@ -11,7 +11,6 @@
       userEmail = "alkimake@pm.me";
       # TODO: add default gpg key and configure with `config.me`
       signing = {
-        key = "0A0FF1A12B507921";
         signByDefault = true;
       };
       lfs = {

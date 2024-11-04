@@ -24,7 +24,10 @@ in {
 
   # Enable home-manager for "ake" user
   home-manager.users."ake" = {
-    imports = [(self + /configurations/home/ake.nix)];
+    imports = [
+      (self + /configurations/home/ake.nix)
+      (self + /configurations/home/ake.mbplvis.nix)
+    ];
   };
 
   # Used for backwards compatibility, please read the changelog before changing.
