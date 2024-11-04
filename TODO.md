@@ -4,11 +4,11 @@ Quick notes on what to do or what to try
 
 ## TODO
 
-- [ ] git signKey comes from config depends on computer. First research;
-    - We can make a config for each machine in `config.nix`
-    - We can define in user file with `ake@machine_name`
+- [x] git signKey comes from config depends on computer. First research;
+  - ~~We can make a config for each machine in `config.nix`~~
+  - We can define in user file with `ake@machine_name`
 - [ ] add brew initialization for zsh config
-	eval "$(/opt/homebrew/bin/brew shellenv)"
+      eval "$(/opt/homebrew/bin/brew shellenv)"
 - [ ] Make a comprehensive README
 - [ ] Make kitty quake style dropdown terminal
   - [ ] macOS
