@@ -27,7 +27,7 @@
         color = {
           ui = "auto";
         };
-        init.defaultBrach = "main";
+        init.defaultBranch = "main";
         core = {
           editor = "nvim";
         };
