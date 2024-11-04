@@ -8,6 +8,7 @@ in {
   colorScheme = flake.inputs.nix-colors.colorSchemes.catppuccin-mocha;
   catppuccin.flavor = flavor;
   programs = {
+    bat.catppuccin.enable = true;
     lazygit.catppuccin.enable = true;
     git.delta.catppuccin.enable = true;
     btop.catppuccin.enable = true;
