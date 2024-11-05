@@ -20,5 +20,9 @@ Quick notes on what to do or what to try
 
 ## TRY
 
-- [ ] Yabai on macos with skhd (keyboard shortcut app)
+- [ ] k9s with catppuccin
+- [ ] MacOS customization
+    - [x] Yabai
+    - [x] skhd
+    - [ ] sketchybar
 - [ ] Wexterm instead of Kitty
