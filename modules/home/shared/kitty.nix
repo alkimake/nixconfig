@@ -83,6 +83,22 @@
       allow_remote_control = "yes";
       listen_on = "unix:/tmp/kitty";
       shell_integration = "enabled";
+
+      # Quake style dropdown terminal settings
+      quake = {
+        window_type = "desktop";
+        window_padding_width = "0";
+        window_margin_width = "0";
+        window_border_width = "0";
+        window_opacity = 0.95;
+        window_height = "50%";
+        window_width = "100%";
+        window_position = "top";
+      };
+    };
+    keybindings = {
+      "ctrl+shift+space" = "toggle_window";
+      "cmd+shift+return" = "kitty --single-instance --title 'quake' --config 'quake'";
     };
     extraConfig = ''
       # GENERATED

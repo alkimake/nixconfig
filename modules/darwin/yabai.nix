@@ -28,6 +28,7 @@ in {
 
         yabai -m rule --add app="^kitty$" border=off
         yabai -m rule --add app="^kitty$" title="${pkgs.kitty}/bin/kitty"
+        yabai -m rule --add app="^kitty$" title="quake" manage=off
       '';
     };
     skhd = {
@@ -84,6 +85,9 @@ in {
         # Launch kitty terminal (using nix-installed kitty)
         cmd - return : ${pkgs.kitty}/bin/kitty --single-instance --directory="$HOME"
 
+        # Toggle quake style dropdown terminal
+        cmd + shift - return : ${pkgs.kitty}/bin/kitty --single-instance --title "quake" --config "quake"
+        
         # Restart yabai
         ctrl + alt + cmd - r : launchctl kickstart -k "org.nixos.yabai"
       '';
