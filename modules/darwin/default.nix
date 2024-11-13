@@ -1,6 +1,9 @@
 # This is your nix-darwin configuration.
 # For home configuration, see /modules/home/*
-{flake, ...}: let
+{
+  flake,
+  ...
+}: let
   inherit (flake) inputs;
   inherit (inputs) self;
 in {
