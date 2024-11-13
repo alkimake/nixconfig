@@ -9,6 +9,7 @@ _: {
       "kitty"
       "google-chrome"
       "obsidian"
+      "utm"
     ];
     brews = [
       "mas"
