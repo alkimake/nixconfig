@@ -1,12 +1,11 @@
 {
-  pkgs,
   config,
   ...
 }: {
   programs.kitty = {
     enable = true;
     font.name = "JetBrainsMono Nerd Font Mono";
-    font.size = 15;
+    font.size = 14;
     # keybindings = {
     #   "kitty_mod+h" = "neighboring_window left";
     #   "kitty_mod+l" = "neighboring_window right";
