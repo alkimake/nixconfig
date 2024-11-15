@@ -32,6 +32,7 @@ in {
         ":q" = "exit";
         weather = "${pkgs.curl}/bin/curl -4 http://wttr.in/Seoul";
         # nix-shell = "nix-shell --command ${pkgs.zsh}/bin/zsh";
+        k = "${pkgs.kubectl}";
       };
       initExtra = ''
         # EXTRACT FUNCTION (needs more nix)

@@ -24,6 +24,9 @@
     # On ubuntu, we need this less for `man home-configuration.nix`'s pager to
     # work.
     less
+
+    # Docker and kubernetes
+    kubectl
   ];
 
   # TODO: try to make nh works with proper settings

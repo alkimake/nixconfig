@@ -13,6 +13,9 @@ _: {
     ];
     brews = [
       "mas"
+      "lima"
+      "docker"
+      "docker-compose"
     ];
     masApps = {
       # "Proton Pass for Safari" = 2087098929;
