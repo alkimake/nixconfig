@@ -27,6 +27,9 @@
 
     # Docker and kubernetes
     kubectl
+    docker
+    docker-compose
+    docker-buildx
   ];
 
   # TODO: try to make nh works with proper settings
