@@ -12,6 +12,7 @@
       # TODO: add default gpg key and configure with `config.me`
       signing = {
         signByDefault = true;
+        key = "649D70BEBA8C8C0C";
       };
       lfs = {
         enable = true;

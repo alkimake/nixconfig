@@ -19,7 +19,7 @@ in {
     historyLimit = 100000;
     terminal = "screen-256color";
     keyMode = "vi";
-    shell = "/bin/zsh";
+    shell = "${pkgs.zsh}/bin/zsh";
     # prefix = "C-a";
     plugins = with pkgs; [
       tmux-nvim

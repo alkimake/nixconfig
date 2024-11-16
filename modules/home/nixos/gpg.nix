@@ -6,4 +6,11 @@
     pinentryPackage = pkgs.pinentry-curses;
     enableScDaemon = false;
   };
+  programs.gpg = {
+    enable = true;
+  };
+  # Optional: Set GPGTTY environment variable for SSH sessions
+  home.sessionVariables = {
+    GPGTTY = "$(tty)";
+  };
 }

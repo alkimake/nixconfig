@@ -14,6 +14,7 @@ in {
   programs = {
     zsh = {
       enable = true;
+      package = pkgs.zsh;
       dotDir = ".config/zsh";
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
