@@ -10,6 +10,7 @@ _: {
       "google-chrome"
       "obsidian"
       "utm"
+      "cursor"
     ];
     brews = [
       "mas"
