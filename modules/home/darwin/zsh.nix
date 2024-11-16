@@ -11,7 +11,7 @@ _: {
     if command -v limactl >/dev/null 2>&1; then
       # Start Lima if it's not running
       if ! limactl list | grep -q "docker.*Running"; then
-        limactl start docker
+        limactl start template://docker
       fi
 
       # Set up Docker context for Lima
