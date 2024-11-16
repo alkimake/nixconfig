@@ -1,5 +1,7 @@
 {pkgs, ...}: {
-  fonts.packages = [
-    pkgs.nerd-fonts.jetbrains-mono
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+    cm_unicode
+    corefonts
   ];
 }
