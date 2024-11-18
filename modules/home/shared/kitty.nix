@@ -14,6 +14,9 @@
     # };
     shellIntegration.enableZshIntegration = true;
     settings = with config.colorScheme.palette; {
+      # On macos use the option key as Alt
+      macos_option_as_alt = true;
+
       # Lets try transparency
       background_opacity = 0.95;
 
@@ -85,10 +88,6 @@
     };
     extraConfig = ''
       # GENERATED
-      action_alias kitty_scrollback_nvim kitten /home/${config.home.username}/.local/share/nvim/lazy/kitty-scrollback.nvim/python/kitty_scrollback_nvim.py
-      map kitty_mod+h kitty_scrollback_nvim
-      map kitty_mod+g kitty_scrollback_nvim --config ksb_builtin_last_cmd_output
-      mouse_map ctrl+shift+right press ungrabbed combine : mouse_select_command_output : kitty_scrollback_nvim --config ksb_builtin_last_visited_cmd_output
     '';
   };
 }

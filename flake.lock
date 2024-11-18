@@ -423,11 +423,11 @@
         "nixvim": "nixvim_2"
       },
       "locked": {
-        "lastModified": 1730765806,
-        "narHash": "sha256-V7wTmUDmAuKco/Aez+oP3B0ePSkBkz+8S8WPU+TYhmc=",
+        "lastModified": 1731894310,
+        "narHash": "sha256-dZ6FXrBvkbppkQ15iWPUBC8ibRNwaU7s38yjmHJSuTY=",
         "owner": "alkimake",
         "repo": "nixvim",
-        "rev": "1e80213070dbbc7518248947e9c10762b4fa71da",
+        "rev": "b42014aee7d44758dfdac8623d29ab4ab29199a4",
         "type": "github"
       },
       "original": {

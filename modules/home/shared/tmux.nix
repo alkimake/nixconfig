@@ -23,6 +23,7 @@ in {
     # prefix = "C-a";
     plugins = with pkgs; [
       tmux-nvim
+      tmuxPlugins.vim-tmux-navigator
       tmuxPlugins.tmux-thumbs
       tmuxPlugins.yank
       tmuxPlugins.sessionist
@@ -39,15 +40,6 @@ in {
       set -ag terminal-overrides ",xterm-256color:RGB"
       set-option -g status-position top
       set-option -sg escape-time 10
-      bind -n S-down new-window
-      bind -n S-left prev
-      bind -n S-right next
-
-      # Vim style pane selection
-      bind h select-pane -L
-      bind j select-pane -D
-      bind k select-pane -U
-      bind l select-pane -R
 
       # Start windows and panes at 1, not 0
       set -g base-index 1
@@ -56,10 +48,10 @@ in {
       set-option -g renumber-windows on
 
       # Use Alt-arrow keys without prefix key to switch panes
-      bind -n M-Left select-pane -L
-      bind -n M-Right select-pane -R
-      bind -n M-Up select-pane -U
-      bind -n M-Down select-pane -D
+      bind -n M-h select-pane -L
+      bind -n M-l select-pane -R
+      bind -n M-k select-pane -U
+      bind -n M-j select-pane -D
 
       # Shift Alt vim keys to switch windows
       bind -n M-H previous-window
