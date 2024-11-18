@@ -1,5 +1,6 @@
 {
   flake,
+  lib,
   ...
 }: let
   inherit (flake) inputs;
@@ -8,5 +9,5 @@ in {
   imports = [
     self.homeModules.darwin
   ];
-  programs.git.signing.key = "0A0FF1A12B507921";
+  programs.git.signing.key = lib.mkForce "0A0FF1A12B507921";
 }
