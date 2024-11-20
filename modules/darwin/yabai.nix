@@ -1,7 +1,6 @@
 {pkgs, ...}: let
   yabai-pkg = pkgs.yabai;
   yabai-bin = "${yabai-pkg}/bin/yabai";
-  jq-bin = "${pkgs.jq}/bin/jq";
 in {
   services = {
     yabai = {

@@ -1,4 +1,4 @@
-{...}: {
+_: {
   # TODO: fix the coloring match with nix-colors
   programs.starship = {
     enable = true;

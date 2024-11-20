@@ -2,7 +2,8 @@
   pkgs,
   config,
   ...
-}: let
+}:
+# let
   # FIXME: only nixos
   # pimg = pkgs.writeShellScriptBin "pimg" ''
   #   output="out.png"
@@ -10,7 +11,8 @@
   #   # xclip -se c -t image/png -o > "$output"
   #   ${pkgs.wl-clipboard}/bin/wl-paste > "$output"
   # '';
-in {
+# in
+{
   programs = {
     zsh = {
       enable = true;
