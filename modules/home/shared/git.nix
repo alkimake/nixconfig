@@ -43,6 +43,7 @@
         ci = "commit";
       };
       ignores = [
+        ".direnv"
         ".vscode/"
         ".idea/"
         "venv/"
