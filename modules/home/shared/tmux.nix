@@ -47,15 +47,9 @@ in {
       set-window-option -g pane-base-index 1
       set-option -g renumber-windows on
 
-      # Use Alt-arrow keys without prefix key to switch panes
-      bind -n M-h select-pane -L
-      bind -n M-l select-pane -R
-      bind -n M-k select-pane -U
-      bind -n M-j select-pane -D
-
       # Shift Alt vim keys to switch windows
-      bind -n M-H previous-window
-      bind -n M-L next-window
+      bind -n S-left previous-window
+      bind -n S-right next-window
 
       # Easier reload of config
       bind r source-file ~/.config/tmux/tmux.conf
