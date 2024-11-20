@@ -82,7 +82,7 @@ in {
         alt - t : ${yabai-bin} -m window --toggle float
 
         # Launch kitty terminal (using nix-installed kitty)
-        cmd - return : ${pkgs.kitty}/bin/kitty --single-instance --directory="$HOME"
+        # cmd - return : ${pkgs.kitty}/bin/kitty --single-instance --directory="$HOME"
 
         # Restart yabai
         ctrl + alt + cmd - r : launchctl kickstart -k "org.nixos.yabai"
