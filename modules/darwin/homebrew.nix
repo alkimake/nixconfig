@@ -11,6 +11,7 @@ _: {
       "obsidian"
       "utm"
       "cursor"
+      "zen-browser"
     ];
     brews = [
       "mas"
