@@ -30,6 +30,7 @@
     docker
     docker-compose
     docker-buildx
+    podman
   ];
 
   # TODO: try to make nh works with proper settings
