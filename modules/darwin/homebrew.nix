@@ -12,6 +12,7 @@ _: {
       "utm"
       "cursor"
       "zen-browser"
+      "protonvpn"
     ];
     brews = [
       "mas"
