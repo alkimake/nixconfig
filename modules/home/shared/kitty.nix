@@ -18,7 +18,7 @@
       macos_option_as_alt = true;
 
       # Lets try transparency
-      background_opacity = 0.95;
+      background_opacity = 0.88;
 
       # Hide the title bar
       hide_window_decorations = "yes";
