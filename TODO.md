@@ -7,7 +7,7 @@ Quick notes on what to do or what to try
 - [x] git signKey comes from config depends on computer. First research;
   - ~~We can make a config for each machine in `config.nix`~~
   - We can define in user file with `ake@machine_name`
-- [ ] add brew initialization for zsh config
+- [x] add brew initialization for zsh config
       eval "$(/opt/homebrew/bin/brew shellenv)"
 - [ ] Make a comprehensive README
 - [ ] Make kitty quake style dropdown terminal
@@ -20,7 +20,7 @@ Quick notes on what to do or what to try
 
 ## TRY
 
-- [ ] k9s with catppuccin
+- [x] k9s with catppuccin
 - [ ] MacOS customization
     - [x] Yabai
     - [x] skhd
