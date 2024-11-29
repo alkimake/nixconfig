@@ -9,7 +9,15 @@
   inherit (pkgs.stdenv) isDarwin;
   nixvim' = inputs.nixvim.packages.${pkgs.system}.default;
   nvim = nixvim'.extend {
-    # config.theme = lib.mkForce "jellybeans";
+    plugins.avante.settings = {
+      claude = {
+        endpoint = "https://api.anthropic.com";
+        max_tokens = 4096;
+        model = "claude-3-5-sonnet-20241022";
+        temperature = 0;
+      };
+      provider = lib.mkForce "claude";
+    };
   };
   # systemBaseHomeModules = (
   #   if isDarwin
