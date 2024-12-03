@@ -11,6 +11,7 @@ in {
     self.nixosModules.common
     ./homebrew.nix
     ./aerospace.nix
+    ./jankyborders.nix
     ./sketchybar.nix
   ];
   # Use TouchID for `sudo` authentication
@@ -52,7 +53,6 @@ in {
         # AppleInterfaceStyle = "Dark"; # dark mode
         "com.apple.keyboard.fnState" = true;
         "com.apple.mouse.tapBehavior" = 1;
-        _HIHideMenuBar = true; # hide menu bar
       };
     };
 

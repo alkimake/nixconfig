@@ -1,11 +1,11 @@
 {flake, ...}: let
-  flavor = "latte";
+  flavor = "mocha";
 in {
   imports = [
     flake.inputs.nix-colors.homeManagerModules.default
     flake.inputs.catppuccin.homeManagerModules.catppuccin
   ];
-  colorScheme = flake.inputs.nix-colors.colorSchemes.catppuccin-latte;
+  colorScheme = flake.inputs.nix-colors.colorSchemes.catppuccin-mocha;
   catppuccin.flavor = flavor;
   programs = {
     bat.catppuccin.enable = true;
