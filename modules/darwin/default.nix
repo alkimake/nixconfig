@@ -10,7 +10,8 @@ in {
   imports = [
     self.nixosModules.common
     ./homebrew.nix
-    ./yabai.nix
+    ./aerospace.nix
+    ./sketchybar.nix
   ];
   # Use TouchID for `sudo` authentication
   security.pam.enableSudoTouchIdAuth = true;
@@ -48,8 +49,10 @@ in {
         ShowStatusBar = true; # show status bar
       };
       NSGlobalDomain = {
-        AppleInterfaceStyle = "Dark"; # dark mode
+        # AppleInterfaceStyle = "Dark"; # dark mode
         "com.apple.keyboard.fnState" = true;
+        "com.apple.mouse.tapBehavior" = 1;
+        _HIHideMenuBar = true; # hide menu bar
       };
     };
 
