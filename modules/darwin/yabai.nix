@@ -4,7 +4,7 @@
 in {
   services = {
     yabai = {
-      enable = true;
+      enable = false;
       package = pkgs.yabai;
       enableScriptingAddition = true;
       config = {
@@ -30,7 +30,7 @@ in {
       '';
     };
     skhd = {
-      enable = true;
+      enable = false;
       skhdConfig = ''
         # Switch spaces
         alt - 1 : ${yabai-bin} -m space --focus 1
