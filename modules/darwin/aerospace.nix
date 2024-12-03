@@ -6,7 +6,7 @@ _: {
         outer = {
           left = 8;
           bottom = 8;
-          top = 8;
+          top = 32;
           right = 8;
         };
         inner = {
