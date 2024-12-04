@@ -6,7 +6,7 @@ _: {
         outer = {
           left = 8;
           bottom = 8;
-          top = 32;
+          top =   [{ monitor."built-in" = 14; } 44];
           right = 8;
         };
         inner = {
@@ -52,7 +52,6 @@ _: {
         alt-tab = "workspace-back-and-forth";
 
         alt-shift-tab = "move-workspace-to-monitor --wrap-around next";
-
       };
       mode.resize.binding = {
         h = "resize width -50";
@@ -61,8 +60,18 @@ _: {
         l = "resize width +50";
         enter = "mode main";
         esc = "mode main";
-        };
-
+      };
+      workspace-to-monitor-force-assignment = {
+        "1" = "^lg hdr 4K$";
+        "2" = "^lg hdr 4K$";
+        "3" = "^lg hdr 4K$";
+        "4" = "^lg hdr 4K$";
+        "5" = "^built-in retina display$";
+        "6" = "^built-in retina display$";
+        "7" = "^built-in retina display$";
+        "8" = "^built-in retina display$";
+        "9" = "^built-in retina display$";
+      };
     };
   };
 }
