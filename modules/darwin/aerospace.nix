@@ -16,6 +16,11 @@ _: {
       };
       "key-mapping".preset = "qwerty";
       automatically-unhide-macos-hidden-apps = false;
+      exec-on-workspace-change = [
+        "/bin/bash"
+        "-c"
+        "sketchybar --trigger aerospace_workspace_change AEROSPACE_FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE AEROSPACE_PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE"
+      ];
       mode.main.binding = {
         alt-h = "focus left";
         alt-j = "focus down";
