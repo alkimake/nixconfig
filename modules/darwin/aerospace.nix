@@ -1,4 +1,7 @@
-_: {
+{pkgs, ...}: {
+  environment.systemPackages = with pkgs; [
+    aerospace
+  ];
   services.aerospace = {
     enable = true;
     settings = {
@@ -6,7 +9,7 @@ _: {
         outer = {
           left = 8;
           bottom = 8;
-          top =   [{ monitor."built-in" = 14; } 44];
+          top = [{monitor."built-in" = 14;} 44];
           right = 8;
         };
         inner = {

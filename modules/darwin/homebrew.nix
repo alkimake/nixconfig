@@ -4,6 +4,7 @@ _: {
 
     taps = [
       "FelixKratz/formulae"
+      "nikitabobko/tap"
     ];
 
     casks = [
@@ -20,6 +21,7 @@ _: {
 
       "font-sf-pro"
       "sf-symbols"
+      "aerospace"
     ];
     brews = [
       "mas"
