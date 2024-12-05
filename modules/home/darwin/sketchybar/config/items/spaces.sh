@@ -54,7 +54,7 @@ SPACES=(
   background.color="$BG_SEC_COLR"
   background.corner_radius=10
   background.drawing=on
-  script="$PLUGIN_DIR/space.sh"
+  script="$PLUGIN_DIR/spaces.sh"
 )
 
 sketchybar --add bracket spaces '/space\..*/' \
