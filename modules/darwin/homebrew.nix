@@ -26,6 +26,7 @@ _: {
     brews = [
       "mas"
       "lima"
+      "switchaudio-osx"
       {
         name = "sketchybar";
         start_service = true;
