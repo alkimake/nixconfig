@@ -3,6 +3,7 @@ _: {
     enable = true;
 
     taps = [
+      "homebrew/services"
       "FelixKratz/formulae"
       "nikitabobko/tap"
     ];
