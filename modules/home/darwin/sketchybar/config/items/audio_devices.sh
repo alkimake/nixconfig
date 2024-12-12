@@ -8,7 +8,7 @@ AUDIODEVICES=(
   icon.color="$PEACH"
   background.drawing=off
   popup.align=right
-  update_freq=5
+  update_freq=2
   script="$PLUGIN_DIR/audio_devices.sh"
   click_script="sketchybar --set \$NAME popup.drawing=toggle; sleep 4; $POPUP_OFF"
 )

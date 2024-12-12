@@ -5,7 +5,7 @@ update_audio() {
   CURRENT_DEVICE=$(SwitchAudioSource -c)
   
   # Get all audio devices
-  DEVICES=$(SwitchAudioSource -a)
+  DEVICES=$(SwitchAudioSource -a -t output)
   
   # Create the menu
   sketchybar --remove '/audio.device.*/'
@@ -23,6 +23,11 @@ update_audio() {
   while IFS= read -r device; do
     # Skip empty lines
     [ -z "$device" ] && continue
+    # DEFAULT_COLOR="$DARK_WHITE"
+    # if [ "$device" = "$CURRENT_DEVICE" ]; then
+    #   DEFAULT_COLOR="$PEACH"
+    # fi
+               # --set "$ITEM_NAME" label.color="$DEFAULT_COLOR" \
     
     # Create menu item
     ITEM_NAME="audio.device.$COUNTER"
