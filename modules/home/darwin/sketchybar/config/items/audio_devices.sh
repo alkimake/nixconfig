@@ -3,7 +3,7 @@ POPUP_OFF="sketchybar --set audio.output$1 popup.drawing=off"
 AUDIODEVICES=(
   label.color="$PEACH"
   label.max_chars=50
-  icon=􀑪
+  icon="$AUDIO_OUTPUT_ICON"
   display=2
   icon.color="$PEACH"
   background.drawing=off
