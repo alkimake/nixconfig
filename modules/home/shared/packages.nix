@@ -1,6 +1,5 @@
 {
   pkgs,
-  flake,
   ...
 }: {
   # Nix packages to install to $HOME
@@ -14,6 +13,7 @@
     tree
     gnumake
     htop
+    watch
 
     # Nix dev
     cachix
