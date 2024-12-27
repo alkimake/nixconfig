@@ -19,6 +19,7 @@ _: {
       "cursor"
       "zen-browser"
       "protonvpn"
+      "zed"
 
       "font-sf-pro"
       "sf-symbols"
