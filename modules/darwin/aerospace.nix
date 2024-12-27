@@ -7,10 +7,10 @@
     settings = {
       gaps = {
         outer = {
-          left = 8;
-          bottom = 8;
+          left = 0;
+          bottom = 0;
           top = [{monitor."built-in" = 14;} 44];
-          right = 8;
+          right = 0;
         };
         inner = {
           horizontal = 3;
