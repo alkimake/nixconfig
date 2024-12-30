@@ -25,6 +25,8 @@
         "sketchybar --trigger aerospace_workspace_change AEROSPACE_FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE AEROSPACE_PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE"
       ];
       mode.main.binding = {
+        cmd-h = []; # Disable "hide application"
+        cmd-alt-h = []; # Disable "hide others"
         alt-h = "focus left";
         alt-j = "focus down";
         alt-k = "focus up";
