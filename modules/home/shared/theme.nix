@@ -6,17 +6,18 @@ in {
     flake.inputs.catppuccin.homeManagerModules.catppuccin
   ];
   colorScheme = flake.inputs.nix-colors.colorSchemes.catppuccin-mocha;
-  catppuccin.flavor = flavor;
-  programs = {
-    bat.catppuccin.enable = true;
-    lazygit.catppuccin.enable = true;
-    git.delta.catppuccin.enable = true;
-    btop.catppuccin.enable = true;
-    fzf.catppuccin.enable = true;
-    starship.catppuccin.enable = true;
-    zsh.syntaxHighlighting.catppuccin.enable = true;
-    yazi.catppuccin.enable = true;
-    k9s.catppuccin.enable = true;
-    kitty.catppuccin.enable = true;
+  catppuccin = {
+    inherit flavor;
+    bat.enable = true;
+    lazygit.enable = true;
+    delta.enable = true;
+    btop.enable = true;
+    fzf.enable = true;
+    starship.enable = true;
+    zsh-syntax-highlighting.enable = true;
+    zed.enable = true;
+    yazi.enable = true;
+    k9s.enable = true;
+    kitty.enable = true;
   };
 }
