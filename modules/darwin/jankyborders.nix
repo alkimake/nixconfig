@@ -7,6 +7,7 @@ _: {
       "kitty"
       "Alacritty"
       "iTerm2"
+      "ghostty"
     ];
   };
 }

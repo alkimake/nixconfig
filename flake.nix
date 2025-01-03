@@ -16,6 +16,9 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     nixvim.url = "github:alkimake/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+    };
 
     #Theme
     catppuccin.url = "github:catppuccin/nix";

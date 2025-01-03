@@ -20,6 +20,7 @@ _: {
       "zen-browser"
       "protonvpn"
       "zed"
+      "ghostty"
 
       "font-sf-pro"
       "sf-symbols"
