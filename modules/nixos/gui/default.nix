@@ -1,7 +1,5 @@
+{flake, ...}:
 {
-  imports = [
-    ./gnome.nix
-  ];
   # Enable networking
   networking.networkmanager.enable = true;
 
