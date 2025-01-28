@@ -1,6 +1,10 @@
 # See /modules/nixos/* for actual settings
 # This file is just *top-level* configuration.
-{flake, ...}: let
+{
+  flake,
+  config,
+  ...
+}: let
   inherit (flake) inputs;
   inherit (inputs) self;
 in {
@@ -9,6 +13,7 @@ in {
     self.nixosModules.common
     self.nixosModules.default
     self.nixosModules.gui
+    (self + /modules/nixos/gui/gnome)
     ./configuration.nix
   ];
 
@@ -19,4 +24,16 @@ in {
       self.homeModules.nixos
     ];
   };
+  # myHomeManager = {
+  #   monitors = [
+  #     {
+  #       name = "Virtual-1";
+  #       width = 1920;
+  #       height = 1080;
+  #       refreshRate = 59.99800;
+  #       x = 0;
+  #       y = 0;
+  #     }
+  #   ];
+  # };
 }

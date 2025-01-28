@@ -9,9 +9,13 @@
     ];
 
   boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "virtio_pci" "sr_mod" "virtio_blk" ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.kernelModules = [ "i915" ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
+
+  hardware.enableRedistributableFirmware = true;
+
+  hardware.graphics.enable = true;
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/6f2066c6-b0f1-4538-bc08-e09f9642829d";
