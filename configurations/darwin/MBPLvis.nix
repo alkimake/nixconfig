@@ -19,7 +19,7 @@ in {
   # https://github.com/nix-community/home-manager/issues/4026#issuecomment-1565487545
   users.users."ake" = {
     home = "/Users/ake";
-    shell = pkgs.zsh;
+    shell = pkgs.nushell;
   };
 
   # Enable home-manager for "ake" user
