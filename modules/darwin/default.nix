@@ -10,7 +10,6 @@ in {
   imports = [
     self.nixosModules.common
     ./homebrew.nix
-    ./aerospace.nix
     ./jankyborders.nix
     ./sketchybar.nix
   ];

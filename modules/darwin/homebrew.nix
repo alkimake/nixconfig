@@ -25,6 +25,8 @@ _: {
       "font-sf-pro"
       "sf-symbols"
       "aerospace"
+
+      "mysqlworkbench"
     ];
     brews = [
       "mas"
