@@ -13,8 +13,6 @@ in {
     ./jankyborders.nix
     ./sketchybar.nix
   ];
-  # Use TouchID for `sudo` authentication
-  security.pam.enableSudoTouchIdAuth = true;
 
   # Configure macOS system
   # More mac-silicon-utms => https://github.com/ryan4yin/nix-darwin-kickstarter/blob/main/rich-demo/modules/system.nix

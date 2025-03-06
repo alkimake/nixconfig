@@ -3,6 +3,7 @@
   imports = [
     ./shared
   ];
+  security.pam.services.sudo_local.touchIdAuth = true;
   environment.systemPackages = with pkgs; [
     go
   ];
