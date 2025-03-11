@@ -20,6 +20,7 @@ _: {
       "protonvpn"
       "zed"
       "ghostty"
+      "wireshark"
 
       "font-sf-pro"
       "sf-symbols"
