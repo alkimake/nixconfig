@@ -34,8 +34,8 @@
         q = "exit";
         ":q" = "exit";
         weather = "${pkgs.curl}/bin/curl -4 http://wttr.in/Seoul";
-        # nix-shell = "nix-shell --command ${pkgs.zsh}/bin/zsh";
-        k = "${pkgs.kubectl}";
+        k = "${pkgs.kubectl}/bin/kubectl";
+        dive="docker run -ti --rm  -v /var/run/docker.sock:/var/run/docker.sock wagoodman/dive";
       };
       initExtra = ''
         # EXTRACT FUNCTION (needs more nix)
