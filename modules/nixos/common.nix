@@ -8,5 +8,6 @@
     go
     awscli2
     posting
+    devenv
   ];
 }

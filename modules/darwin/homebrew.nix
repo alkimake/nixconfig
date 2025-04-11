@@ -27,8 +27,10 @@ _: {
       "aerospace"
 
       "mysqlworkbench"
+
     ];
     brews = [
+      "ruby"
       "mas"
       "lima"
       "switchaudio-osx"
