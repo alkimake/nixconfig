@@ -3,7 +3,7 @@
 in {
   imports = [
     flake.inputs.nix-colors.homeManagerModules.default
-    flake.inputs.catppuccin.homeManagerModules.catppuccin
+    flake.inputs.catppuccin.homeModules.catppuccin
   ];
   colorScheme = flake.inputs.nix-colors.colorSchemes.catppuccin-mocha;
   catppuccin = {
