@@ -17,6 +17,9 @@ in {
   # Configure macOS system
   # More mac-silicon-utms => https://github.com/ryan4yin/nix-darwin-kickstarter/blob/main/rich-demo/modules/system.nix
   system = {
+    # Set primary user for system-wide activation
+    primaryUser = "ake";
+    
     defaults = {
       dock = {
         autohide = true;
