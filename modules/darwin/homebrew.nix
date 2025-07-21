@@ -17,7 +17,6 @@ _: {
       "obsidian"
       "utm"
       "cursor"
-      "zen-browser"
       "protonvpn"
       "zed"
       "ghostty"
@@ -28,9 +27,10 @@ _: {
 
       "mysqlworkbench"
 
+      "claude-code"
     ];
     brews = [
-      "ruby"
+      # "ruby"  # Removed - macOS already provides Ruby, causing conflicts
       "mas"
       "lima"
       "switchaudio-osx"
