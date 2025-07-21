@@ -15,6 +15,9 @@ in {
   nixpkgs.hostPlatform = "aarch64-darwin";
   networking.hostName = "MBPLvis";
 
+  # Set the primary user for nix-darwin user-specific options
+  system.primaryUser = "ake";
+
   # For home-manager to work.
   # https://github.com/nix-community/home-manager/issues/4026#issuecomment-1565487545
   users.users."ake" = {
