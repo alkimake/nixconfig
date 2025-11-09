@@ -1,10 +1,21 @@
 # See /modules/darwin/* for actual settings
 # This file is just *top-level* configuration.
-{ flake, ... }:
+{ flake, pkgs, config, ... }:
 
 let
   inherit (flake) inputs;
   inherit (inputs) self;
+  
+  # Get host-specific configuration
+  hostConfig = config.hosts."mac-silicon-utm" or null;
+  shell = if hostConfig != null then hostConfig.shell else "zsh";
+  
+  # Map shell name to package
+  shellPackage = {
+    zsh = pkgs.zsh;
+    nushell = pkgs.nushell;
+    bash = pkgs.bash;
+  }.${shell};
 in
 {
   imports = [
@@ -16,11 +27,19 @@ in
 
   # For home-manager to work.
   # https://github.com/nix-community/home-manager/issues/4026#issuecomment-1565487545
-  users.users."ake".home = "/Users/ake";
+  users.users."ake" = {
+    home = "/Users/ake";
+    shell = shellPackage;
+  };
 
   # Enable home-manager for "ake" user
   home-manager.users."ake" = {
     imports = [ (self + /configurations/home/ake.nix) ];
+    
+    # Pass host configuration to home-manager
+    _module.args = {
+      inherit (config) hosts;
+    };
   };
 
   # Used for backwards compatibility, please read the changelog before changing.

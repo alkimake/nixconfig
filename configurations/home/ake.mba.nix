@@ -5,5 +5,5 @@ in {
   imports = [
     self.homeModules.darwin
   ];
-  programs.git.signing.key = "649D70BEBA8C8C0C";
+  # Git configuration is now handled by the shared git module using host-specific settings
 }

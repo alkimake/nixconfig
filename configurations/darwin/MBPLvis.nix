@@ -3,10 +3,22 @@
 {
   flake,
   pkgs,
+  config,
   ...
 }: let
   inherit (flake) inputs;
   inherit (inputs) self;
+  
+  # Get host-specific configuration
+  hostConfig = config.hosts.MBPLvis or null;
+  shell = if hostConfig != null then hostConfig.shell else "nushell";
+  
+  # Map shell name to package
+  shellPackage = {
+    zsh = pkgs.zsh;
+    nushell = pkgs.nushell;
+    bash = pkgs.bash;
+  }.${shell};
 in {
   imports = [
     self.darwinModules.default
@@ -22,7 +34,7 @@ in {
   # https://github.com/nix-community/home-manager/issues/4026#issuecomment-1565487545
   users.users."ake" = {
     home = "/Users/ake";
-    shell = pkgs.nushell;
+    shell = shellPackage;
   };
 
   # Enable home-manager for "ake" user
@@ -31,6 +43,11 @@ in {
       (self + /configurations/home/ake.nix)
       (self + /configurations/home/ake.mbplvis.nix)
     ];
+    
+    # Pass host configuration to home-manager
+    _module.args = {
+      inherit (config) hosts;
+    };
   };
 
   # Used for backwards compatibility, please read the changelog before changing.

@@ -8,7 +8,8 @@
   inherit (inputs) self;
 in {
   imports = [
-    self.nixosModules.common
+    ../flake-parts/config.nix
+    ./common.nix
     ./homebrew.nix
     ./jankyborders.nix
     ./sketchybar.nix
