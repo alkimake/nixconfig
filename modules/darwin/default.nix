@@ -11,8 +11,6 @@ in {
     ../flake-parts/config.nix
     ./common.nix
     ./homebrew.nix
-    ./jankyborders.nix
-    ./sketchybar.nix
   ];
 
   # Configure macOS system
