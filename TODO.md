@@ -24,5 +24,4 @@ Quick notes on what to do or what to try
 - [ ] MacOS customization
     - [x] Yabai
     - [x] skhd
-    - [ ] sketchybar
 - [ ] Wexterm instead of Kitty
