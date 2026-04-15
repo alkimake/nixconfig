@@ -2,6 +2,7 @@
   flake,
   pkgs,
   lib,
+  config,
   ...
 }: let
   inherit (flake) inputs;
@@ -34,7 +35,7 @@ in {
         "root"
         (
           if pkgs.stdenv.isDarwin
-          then flake.config.me.username
+          then config.me.username
           else "@wheel"
         )
       ];

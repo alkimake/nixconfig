@@ -26,8 +26,23 @@
     options = {
       flavor = lib.mkOption {
         type = lib.types.enum ["latte" "frappe" "macchiato" "mocha"];
+        default = "mocha";
         description = ''
-          Catppuccin theme flavor
+          Default flavor (back-compat); used as darkFlavor if darkFlavor is unset.
+        '';
+      };
+      lightFlavor = lib.mkOption {
+        type = lib.types.enum ["latte" "frappe" "macchiato" "mocha"];
+        default = "latte";
+        description = ''
+          Catppuccin flavor used when in light mode.
+        '';
+      };
+      darkFlavor = lib.mkOption {
+        type = lib.types.enum ["latte" "frappe" "macchiato" "mocha"];
+        default = "mocha";
+        description = ''
+          Catppuccin flavor used when in dark mode.
         '';
       };
     };

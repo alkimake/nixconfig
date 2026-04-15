@@ -14,7 +14,9 @@
     MBA = {
       # Theme configuration
       theme = {
-        flavor = "mocha";  # Change from mocha to latte for MBA
+        darkFlavor = "mocha";
+        lightFlavor = "latte";
+        # Active mode is selected via .theme-mode (see `just light` / `just dark`).
         # Available flavors: latte, frappe, macchiato, mocha
       };
       
@@ -36,7 +38,8 @@
     MBPLvis = {
       # Theme configuration
       theme = {
-        flavor = "mocha";  # Keep mocha for MBPLvis
+        darkFlavor = "mocha";
+        lightFlavor = "latte";
       };
       
       # Git configuration
@@ -57,7 +60,8 @@
     "mac-silicon-utm" = {
       # Theme configuration
       theme = {
-        flavor = "frappe";  # Use frappe for UTM VM
+        darkFlavor = "frappe";
+        lightFlavor = "latte";
       };
       
       # Git configuration
@@ -78,7 +82,8 @@
     "vm-qemu" = {
       # Theme configuration
       theme = {
-        flavor = "macchiato";  # Use macchiato for QEMU VM
+        darkFlavor = "macchiato";
+        lightFlavor = "latte";
       };
       
       # Git configuration
@@ -98,7 +103,8 @@
     "vm-aarch64-utm" = {
       # Theme configuration
       theme = {
-        flavor = "mocha";  # Use mocha for aarch64 UTM VM
+        darkFlavor = "mocha";
+        lightFlavor = "latte";
       };
       
       # Git configuration

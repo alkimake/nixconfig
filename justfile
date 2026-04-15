@@ -30,3 +30,28 @@ dev:
 [group('Main')]
 run: lint check
   nix run
+
+# Switch to light theme and rebuild
+[group('Theme')]
+light:
+  printf light > .theme-mode
+  just run
+
+# Switch to dark theme and rebuild
+[group('Theme')]
+dark:
+  printf dark > .theme-mode
+  just run
+
+# Toggle between light and dark, then rebuild
+[group('Theme')]
+toggle:
+  #!/usr/bin/env bash
+  set -euo pipefail
+  current=$(cat .theme-mode 2>/dev/null || echo dark)
+  current=${current//[[:space:]]/}
+  if [ "$current" = "dark" ]; then
+    just light
+  else
+    just dark
+  fi

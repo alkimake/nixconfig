@@ -2,10 +2,17 @@
   # Get the current hostname and use it to determine theme flavor
   hostname = config.networking.hostName or "unknown";
   hostConfig = config.hosts.${hostname} or null;
-  
-  # Default to mocha if no host-specific config is found
-  flavor = if hostConfig != null then hostConfig.theme.flavor else "mocha";
-  
+
+  # Read the active mode (light|dark) from the repo-root .theme-mode file.
+  # Path is relative to this file: modules/home/shared/theme.nix → repo root.
+  modeRaw = builtins.readFile ../../../.theme-mode;
+  mode = builtins.replaceStrings ["\n" " " "\t"] ["" "" ""] modeRaw;
+
+  light = if hostConfig != null then hostConfig.theme.lightFlavor else "latte";
+  dark  = if hostConfig != null then hostConfig.theme.darkFlavor  else "mocha";
+
+  flavor = if mode == "light" then light else dark;
+
   # Map flavor to color scheme
   colorSchemeMap = {
     latte = flake.inputs.nix-colors.colorSchemes.catppuccin-latte;
@@ -13,7 +20,7 @@
     macchiato = flake.inputs.nix-colors.colorSchemes.catppuccin-macchiato;
     mocha = flake.inputs.nix-colors.colorSchemes.catppuccin-mocha;
   };
-  
+
   colorScheme = colorSchemeMap.${flavor};
 in {
   imports = [

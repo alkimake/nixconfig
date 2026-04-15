@@ -42,6 +42,15 @@
         nixosModules = {
           default = ./modules/nixos;
           common = ./modules/nixos/common.nix;
+          vm-shared = ./modules/nixos/vm-shared.nix;
+          gui = ./modules/nixos/gui;
+        };
+
+        # Export home-manager modules
+        homeModules = {
+          default = ./modules/home;
+          nixos = ./modules/home/nixos.nix;
+          darwin = ./modules/home/darwin.nix;
         };
 
         # Darwin configurations

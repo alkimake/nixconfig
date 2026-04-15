@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(nix eval:*)",
+      "Bash(nix build:*)",
+      "Bash(nix flake show:*)",
+      "Bash(jj git:*)",
+      "Bash(jj bookmark:*)",
+      "Bash(jj log:*)",
+      "Bash(git add:*)",
+      "Bash(nix flake:*)",
+      "Bash(git stash:*)",
+      "Bash(darwin-rebuild build:*)",
+      "Bash(just check:*)",
+      "Bash(timeout 60 nix fmt)",
+      "Bash(echo \"exit=$?\")",
+      "Bash(nix fmt:*)",
+      "Bash(jj status:*)",
+      "Read(//etc/profiles/per-user/ake/bin/**)",
+      "Read(//private/etc/profiles/per-user/**)",
+      "Read(//nix/store/gnh5xlfgj5jxx1j8j2pq7k0rf371yv0v-starship-1.24.2/bin/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

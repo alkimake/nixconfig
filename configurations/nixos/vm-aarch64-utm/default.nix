@@ -26,13 +26,20 @@ in {
   # Override the shell in vm-shared module
   users.users.ake.shell = shellPackage;
 
+  # Forward `flake` to home-manager modules (they expect it as a module arg).
+  home-manager.extraSpecialArgs = { inherit flake; };
+
   # Enable home-manager for "ake" user
   home-manager.users."ake" = {
-    imports = [(self + /configurations/home/ake.nix)];
-    
+    imports = [
+      (self + /configurations/home/ake.nix)
+      self.homeModules.nixos
+    ];
+
     # Pass host configuration to home-manager
     _module.args = {
       inherit (config) hosts;
+      hostname = "vm-aarch64-utm";
     };
   };
 }

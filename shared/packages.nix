@@ -8,7 +8,6 @@
 
     nodejs
     yarn
-    node2nix
     bun
   ];
 }

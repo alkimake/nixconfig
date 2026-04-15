@@ -1,15 +1,21 @@
 { config, pkgs, hosts, hostname, ... }: let
-  # Get the current hostname and use it to determine theme flavor
-  # Use the hostname passed from the darwin configuration
   hostConfig = hosts.${hostname} or null;
-  
-  # Debug: let's see what we're getting
-  debug = builtins.trace "Ghostty debug: hostname=${hostname}, hostConfig=${builtins.toJSON hostConfig}" null;
-  
-  # Default to mocha if no host-specific config is found
-  flavor = if hostConfig != null then hostConfig.theme.flavor else "mocha";
-  
-  theme = "Catppuccin Mocha";
+
+  # Read active mode (light|dark) from repo-root .theme-mode.
+  # Path is relative to this file: modules/home/shared/ghostty.nix → repo root.
+  modeRaw = builtins.readFile ../../../.theme-mode;
+  mode = builtins.replaceStrings ["\n" " " "\t"] ["" "" ""] modeRaw;
+
+  light = if hostConfig != null then hostConfig.theme.lightFlavor else "latte";
+  dark  = if hostConfig != null then hostConfig.theme.darkFlavor  else "mocha";
+  flavor = if mode == "light" then light else dark;
+
+  ghosttyTheme = {
+    latte = "Catppuccin Latte";
+    frappe = "Catppuccin Frappe";
+    macchiato = "Catppuccin Macchiato";
+    mocha = "Catppuccin Mocha";
+  }.${flavor};
 in {
   home.file.".config/ghostty/config".text = ''
     # Window settings
@@ -18,7 +24,7 @@ in {
     font-family = "JetBrainsMono Nerd Font Mono"
     font-size = 14
 
-    theme = "${theme}"
+    theme = "${ghosttyTheme}"
 
     # Shell integration
     shell-integration = zsh
