@@ -10,6 +10,7 @@ in {
   imports = [
     ../flake-parts/config.nix
     ./common.nix
+    ../../shared/packages.nix
     ./homebrew.nix
   ];
 

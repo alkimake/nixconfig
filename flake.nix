@@ -9,7 +9,6 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     flake-parts.url = "github:hercules-ci/flake-parts";
-    nixos-unified.url = "github:srid/nixos-unified";
 
     # Software inputs
     nix-index-database.url = "github:nix-community/nix-index-database";
@@ -25,11 +24,71 @@
     nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  # Wired using https://nixos-unified.org/autowiring.html
-  outputs = inputs:
-    inputs.nixos-unified.lib.mkFlake
-    {
-      inherit inputs;
-      root = ./.;
+  outputs = inputs@{ self, flake-parts, nixpkgs, nix-darwin, home-manager, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin" ];
+
+      imports = [
+        ./modules/flake-parts/config.nix
+        ./modules/flake-parts/devshell.nix
+        ./modules/flake-parts/toplevel.nix
+      ];
+
+      flake = {
+        # Export darwin modules
+        darwinModules.default = ./modules/darwin;
+
+        # Export nixos modules
+        nixosModules = {
+          default = ./modules/nixos;
+          common = ./modules/nixos/common.nix;
+        };
+
+        # Darwin configurations
+        darwinConfigurations = {
+          "MBPLvis" = nix-darwin.lib.darwinSystem {
+            specialArgs = { flake = { inherit inputs; }; };
+            modules = [
+              home-manager.darwinModules.home-manager
+              ./configurations/darwin/MBPLvis.nix
+            ];
+          };
+
+          "MBA" = nix-darwin.lib.darwinSystem {
+            specialArgs = { flake = { inherit inputs; }; };
+            modules = [
+              home-manager.darwinModules.home-manager
+              ./configurations/darwin/MBA.nix
+            ];
+          };
+
+          "mac-silicon-utm" = nix-darwin.lib.darwinSystem {
+            specialArgs = { flake = { inherit inputs; }; };
+            modules = [
+              home-manager.darwinModules.home-manager
+              ./configurations/darwin/mac-silicon-utm.nix
+            ];
+          };
+        };
+
+        # NixOS configurations
+        nixosConfigurations = {
+          "vm-aarch64-utm" = nixpkgs.lib.nixosSystem {
+            specialArgs = { flake = { inherit inputs; }; };
+            modules = [
+              home-manager.nixosModules.home-manager
+              ./configurations/nixos/vm-aarch64-utm
+            ];
+          };
+
+          "vm-qemu" = nixpkgs.lib.nixosSystem {
+            specialArgs = { flake = { inherit inputs; }; };
+            modules = [
+              home-manager.nixosModules.home-manager
+              ./configurations/nixos/vm-qemu
+            ];
+          };
+        };
+      };
     };
 }
