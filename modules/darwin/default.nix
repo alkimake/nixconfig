@@ -8,15 +8,18 @@
   inherit (inputs) self;
 in {
   imports = [
-    self.nixosModules.common
+    ../flake-parts/config.nix
+    ./common.nix
+    ../../shared/packages.nix
     ./homebrew.nix
-    ./jankyborders.nix
-    ./sketchybar.nix
   ];
 
   # Configure macOS system
   # More mac-silicon-utms => https://github.com/ryan4yin/nix-darwin-kickstarter/blob/main/rich-demo/modules/system.nix
   system = {
+    # Set primary user for system-wide activation
+    primaryUser = "ake";
+    
     defaults = {
       dock = {
         autohide = true;

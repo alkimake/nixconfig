@@ -2,22 +2,21 @@
   pkgs,
   config,
   ...
-}:
-# let
-  # FIXME: only nixos
-  # pimg = pkgs.writeShellScriptBin "pimg" ''
-  #   output="out.png"
-  #   [ ! -z "$1" ] && output="$1.png"
-  #   # xclip -se c -t image/png -o > "$output"
-  #   ${pkgs.wl-clipboard}/bin/wl-paste > "$output"
-  # '';
-# in
-{
+}: let
+  # Get the current hostname and use it to determine theme flavor
+  hostname = config.networking.hostName or "unknown";
+  hostConfig = config.hosts.${hostname} or null;
+  
+  # Default to mocha if no host-specific config is found
+  flavor = if hostConfig != null then hostConfig.theme.flavor else "mocha";
+  
+  vimcolorscheme = "catppuccin-${flavor}";
+in {
   programs = {
     zsh = {
       enable = true;
       package = pkgs.zsh;
-      dotDir = ".config/zsh";
+      dotDir = "${config.xdg.configHome}/zsh";
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       shellAliases = {
@@ -37,7 +36,7 @@
         k = "${pkgs.kubectl}/bin/kubectl";
         dive="docker run -ti --rm  -v /var/run/docker.sock:/var/run/docker.sock wagoodman/dive";
       };
-      initExtra = ''
+      initContent = ''
         # EXTRACT FUNCTION (needs more nix)
 
         # PROMPT
@@ -79,7 +78,7 @@
         export LESS_TERMCAP_so=$'\e[01;33m'
         export LESS_TERMCAP_ue=$'\e[0m'
         export LESS_TERMCAP_us=$'\e[1;4;31m'
-        export vimcolorscheme="catppuccin-mocha"
+        export vimcolorscheme="${vimcolorscheme}"
       '';
     };
 

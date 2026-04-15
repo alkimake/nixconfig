@@ -1,4 +1,11 @@
-{pkgs, ...}: let
+{config, pkgs, lib, ...}: let
+  # Get the current hostname and use it to determine theme flavor
+  hostname = config.networking.hostName or "unknown";
+  hostConfig = config.hosts.${hostname} or null;
+  
+  # Default to mocha if no host-specific config is found
+  flavor = if hostConfig != null then hostConfig.theme.flavor else "mocha";
+  
   # FIXME: update the plugins
   tmux-nvim =
     pkgs.tmuxPlugins.mkTmuxPlugin
@@ -24,17 +31,20 @@ in {
     plugins = with pkgs; [
       tmux-nvim
       tmuxPlugins.vim-tmux-navigator
-      tmuxPlugins.tmux-thumbs
-      tmuxPlugins.yank
+      # tmux-thumbs and yank pull in wayland dependencies on Linux
+      # On macOS, we use native pbcopy/pbpaste clipboard
       tmuxPlugins.sessionist
       {
         plugin = tmuxPlugins.catppuccin;
         extraConfig = ''
-          set -g @catppuccin_flavour 'mocha'
+          set -g @catppuccin_flavour '${flavor}'
           set -g @catppuccin_window_tabs_enabled on
           set -g @catppuccin_date_time "%H:%M"
         '';
       }
+    ] ++ lib.optionals (!pkgs.stdenv.isDarwin) [
+      tmuxPlugins.tmux-thumbs
+      tmuxPlugins.yank
     ];
     extraConfig = ''
       set -ag terminal-overrides ",xterm-256color:RGB"

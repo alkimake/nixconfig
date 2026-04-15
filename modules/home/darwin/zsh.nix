@@ -1,5 +1,5 @@
 _: {
-  programs.zsh.initExtra = ''
+  programs.zsh.initContent = ''
     # Homebrew initialization
     eval "$(/opt/homebrew/bin/brew shellenv)"
 

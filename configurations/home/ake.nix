@@ -7,7 +7,7 @@
   inherit (flake) inputs;
   inherit (inputs) self;
   inherit (pkgs.stdenv) isDarwin;
-  nixvim' = inputs.nixvim.packages.${pkgs.system}.default;
+  nixvim' = inputs.nixvim.packages.${pkgs.stdenv.hostPlatform.system}.default;
   nvim = nixvim'.extend {
     plugins.avante.settings = {
       claude = {
@@ -18,6 +18,7 @@
       };
       provider = lib.mkForce "claude";
     };
+    plugins.lsp.servers.ansiblels.enable = lib.mkForce false;
   };
   # systemBaseHomeModules = (
   #   if isDarwin

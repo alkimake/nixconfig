@@ -1,4 +1,16 @@
-_: {
+{config, ...}: let
+  # Get the current hostname and use it to determine git settings
+  hostname = config.networking.hostName or "unknown";
+  hostConfig = config.hosts.${hostname} or null;
+  
+  # Default values if no host-specific config is found
+  defaultEmail = "alkimake@pm.me";
+  defaultSigningKey = "649D70BEBA8C8C0C";
+  
+  # Use host-specific values or defaults
+  userEmail = if hostConfig != null then hostConfig.git.email else defaultEmail;
+  signingKey = if hostConfig != null then hostConfig.git.signingKey else defaultSigningKey;
+in {
   home.shellAliases = {
     g = "git";
     lg = "lazygit";
@@ -7,22 +19,19 @@ _: {
   programs = {
     git = {
       enable = true;
-      userName = "Alkim Ake Gozen";
-      userEmail = "alkimake@pm.me";
-      # TODO: add default gpg key and configure with `config.me`
       signing = {
         signByDefault = true;
-        key = "649D70BEBA8C8C0C";
+        key = signingKey;
       };
       lfs = {
         enable = true;
         skipSmudge = true;
       };
-      delta = {
-        # TODO: Cattpuccin theme
-        enable = true;
-      };
-      extraConfig = {
+      settings = {
+        user = {
+          name = "Alkim Ake Gozen";
+          email = userEmail;
+        };
         pull.rebase = true;
         push = {autoSetupRemote = true;};
         color = {
@@ -32,15 +41,15 @@ _: {
         core = {
           editor = "nvim";
         };
-      };
-      aliases = {
-        lola = "log --graph --decorate --pretty=oneline --abbrev-commit --all";
-        permission-reset = "!git diff -p -R --no-color | grep -E \"^(diff|(old|new) mode)\" --color=never | git apply";
-        lg = "log --graph --pretty=format:'%C(auto)%h%d%C(reset) %s %C(green)(%cd) %C(blue)<%an> %C(reset)' --date=relative";
-        lgd = "log --graph --pretty=format:'%C(auto)%h%d%C(reset) %s %C(green)(%cd) %C(blue)(%ad) <%an> %C(reset)' --date=relative";
-        lga = "log --graph --all --pretty=format:'%C(auto)%h%d%C(reset) %s %C(green)(%cd) %C(blue)<%an> %C(reset)' --date=relative";
-        lgad = "log --graph --all --pretty=format:'%C(auto)%h%d%C(reset) %s %C(green)(%cd) %C(blue)(%ad) <%an> %C(reset)' --date=relative";
-        ci = "commit";
+        alias = {
+          lola = "log --graph --decorate --pretty=oneline --abbrev-commit --all";
+          permission-reset = "!git diff -p -R --no-color | grep -E \"^(diff|(old|new) mode)\" --color=never | git apply";
+          lg = "log --graph --pretty=format:'%C(auto)%h%d%C(reset) %s %C(green)(%cd) %C(blue)<%an> %C(reset)' --date=relative";
+          lgd = "log --graph --pretty=format:'%C(auto)%h%d%C(reset) %s %C(green)(%cd) %C(blue)(%ad) <%an> %C(reset)' --date=relative";
+          lga = "log --graph --all --pretty=format:'%C(auto)%h%d%C(reset) %s %C(green)(%cd) %C(blue)<%an> %C(reset)' --date=relative";
+          lgad = "log --graph --all --pretty=format:'%C(auto)%h%d%C(reset) %s %C(green)(%cd) %C(blue)(%ad) <%an> %C(reset)' --date=relative";
+          ci = "commit";
+        };
       };
       ignores = [
         ".direnv"
@@ -59,6 +68,10 @@ _: {
         ".DS_Store"
         "*.kubeconfig"
       ];
+    };
+    delta = {
+      enable = true;
+      enableGitIntegration = true;
     };
     lazygit = {
       enable = true;

@@ -20,10 +20,10 @@ _: {
       "protonvpn"
       "zed"
       "ghostty"
+      "wireshark"
 
       "font-sf-pro"
       "sf-symbols"
-      "aerospace"
 
       "mysqlworkbench"
 
@@ -34,11 +34,6 @@ _: {
       "mas"
       "lima"
       "switchaudio-osx"
-      {
-        name = "sketchybar";
-        start_service = true;
-        restart_service = "changed";
-      }
     ];
     masApps = {
       # "Proton Pass for Safari" = 2087098929;

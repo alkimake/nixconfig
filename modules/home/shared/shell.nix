@@ -3,7 +3,7 @@ _: {
     # on macOS, you probably don't need this
     bash = {
       enable = true;
-      initExtra = ''
+      bashrcExtra = ''
         # Custom bash profile goes here
       '';
     };

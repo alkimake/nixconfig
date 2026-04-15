@@ -1,5 +1,9 @@
 # This is your nixos configuration.
 # For home configuration, see /modules/home/*
-_: {
+{
+  imports = [
+    ../flake-parts/config.nix
+  ];
+  
   services.openssh.enable = true;
 }
