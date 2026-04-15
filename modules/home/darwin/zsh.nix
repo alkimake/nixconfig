@@ -1,5 +1,6 @@
 _: {
   programs.zsh.initContent = ''
+    export PATH=$HOME/.local/bin:$PATH
     # Homebrew initialization
     eval "$(/opt/homebrew/bin/brew shellenv)"
 

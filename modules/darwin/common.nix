@@ -12,5 +12,7 @@
     awscli2
     posting
     devenv
+    rustc
+    cargo
   ];
 } 
