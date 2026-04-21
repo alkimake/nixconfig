@@ -11,7 +11,6 @@
   # Map shell name to package
   shellPackage = {
     zsh = pkgs.zsh;
-    nushell = pkgs.nushell;
     bash = pkgs.bash;
   }.${shell};
 in {

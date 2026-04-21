@@ -26,10 +26,17 @@ check:
 dev:
   nix develop
 
-# Activate the configuration
+# Activate the configuration (auto-detects platform and hostname)
 [group('Main')]
-run: lint check
-  nix run
+run:
+  #!/usr/bin/env bash
+  set -euo pipefail
+  host=$(hostname -s)
+  if [[ "$(uname)" == "Darwin" ]]; then
+    sudo darwin-rebuild switch --flake ".#${host}"
+  else
+    sudo nixos-rebuild switch --flake ".#${host}"
+  fi
 
 # Switch to light theme and rebuild
 [group('Theme')]

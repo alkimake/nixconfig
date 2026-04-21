@@ -49,7 +49,7 @@
       };
       
       # Shell configuration
-      shell = "nushell";
+      shell = "zsh";
       
       # Additional host-specific settings
       hostname = "MBPLvis";

@@ -35,6 +35,7 @@ in {
         weather = "${pkgs.curl}/bin/curl -4 http://wttr.in/Seoul";
         k = "${pkgs.kubectl}/bin/kubectl";
         dive="docker run -ti --rm  -v /var/run/docker.sock:/var/run/docker.sock wagoodman/dive";
+        gsp = "git stash && git pull && git stash pop";
       };
       initContent = ''
         # EXTRACT FUNCTION (needs more nix)

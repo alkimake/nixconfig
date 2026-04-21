@@ -80,7 +80,7 @@
         '';
       };
       shell = lib.mkOption {
-        type = lib.types.enum ["zsh" "nushell" "bash"];
+        type = lib.types.enum ["zsh" "bash"];
         description = ''
           Default shell for this host
         '';

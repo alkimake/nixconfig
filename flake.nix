@@ -35,6 +35,8 @@
       ];
 
       flake = {
+        overlays = import ./overlays;
+
         # Export darwin modules
         darwinModules.default = ./modules/darwin;
 

@@ -11,12 +11,10 @@
   
   # Get host-specific configuration
   hostConfig = config.hosts.MBPLvis or null;
-  shell = if hostConfig != null then hostConfig.shell else "nushell";
-  
-  # Map shell name to package
+  shell = if hostConfig != null then hostConfig.shell else "zsh";
+
   shellPackage = {
     zsh = pkgs.zsh;
-    nushell = pkgs.nushell;
     bash = pkgs.bash;
   }.${shell};
 in {
